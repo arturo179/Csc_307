@@ -32,14 +32,30 @@ const users = {
         job: "Aspring actress"
       },
       {
-        id: "zap555",
+        id: "Lap555",
         name: "Dennis",
         job: "Bartender"
       }
     ]
   };
+//   app.get("/users", (req, res) => {
+//     res.send(users);
+//   });
+  const findUserByName = (name) => {
+    return users["users_list"].filter(
+      (user) => user["name"] === name
+    );
+  };
+  
   app.get("/users", (req, res) => {
-    res.send(users);
+    const name = req.query.name;
+    if (name != undefined) {
+      let result = findUserByName(name);
+      result = { users_list: result };
+      res.send(result);
+    } else {
+      res.send(users);
+    }
   });
 
 app.listen(port, () => {
