@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --mode development"
+    "dev": "npm run dev --workspace react-frontend",  
+    "start": "npm start --workspace react-frontend"
   },
   "author": "",
   "license": "ISC",
