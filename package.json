@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run dev --workspace express-backend",
-    "start": "npm start --workspace express-backend"
+    "dev": "npm run dev --workspace backend.js",
+    "start": "npm start --workspace backend.js"
   },
   "author": "",
   "license": "ISC",
