@@ -1,14 +1,20 @@
-// backend.js
+import cors from "cors";
 import express from "express";
+
 
 const app = express();
 const port = 8000;
 
+app.use(cors());
 app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
+
+
+
+
+ app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 const users = {
     users_list: [
       {
@@ -38,10 +44,12 @@ const users = {
       }
     ]
   };
+//Trying to implement a 201 call
+  
 
-//   app.get("/users", (req, res) => {
-//     res.send(users);
-//   });
+app.get("/users", (req, res) => {
+    res.send(users);
+ });
 const findUserByNameAndJob = (name, job) => {
     return users.users_list.filter((user) => 
         user.name.toLowerCase() === name.toLowerCase() && user.job.toLowerCase() === job.toLowerCase()
@@ -98,17 +106,30 @@ app.delete("/users/:id", (req, res) => {
     if (result === undefined) {
         res.status(404).send("Resource not found.");
     } else {
-        res.send(); 
+        res.status(202).send(result); 
     }
 }); 
         
-        
+const randomId = () => {
+  const characters = '1234567890';
+   let userId = '';
+   let idLength = 4;
+   for (let i=0; i <idLength;i++){
+    const randomI = Math.floor(Math.random()* characters.length);
+    userId+= characters.charAt(randomI);
+   }
+   return userId
+};      
         
     
   app.post("/users", (req, res)=> {
     const userToAdd = req.body;
-    addUser(userToAdd);
-    res.send();
+    if(!userToAdd.id){
+      userToAdd.id = randomId();
+
+    }
+    const addedUser =addUser(userToAdd);
+    res.status(201).send(addedUser);
   });
 
 app.listen(port, () => {
