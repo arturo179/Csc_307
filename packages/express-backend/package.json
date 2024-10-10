@@ -1,19 +1,61 @@
 {
+  
+
   "name": "backend.js",
+  
+
   "version": "1.0.0",
+  
+
   "type": "module",
+  
+
   "main": "backend.js",
+  
+
   "scripts": {
-    "dev": "npx nodemon backend.js",
-    "start": "node backend.js"
+  
+
+    
+
+  "dev": "npx nodemon backend.js"
+  
+
   },
+  
+
   "author": "",
+  
+
   "license": "ISC",
+  
+
   "description": "",
+  
+
   "dependencies": {
-    "express": "^4.21.0"
+  
+
+    
+
+  "cors": "^2.8.5",
+  
+
+    
+
+  "express": "^4.21.0"
+  
+
   },
+  
+
   "devDependencies": {
-    "nodemon": "^3.1.7"
+  
+
+    
+
+  "nodemon": "^3.1.7"
+  
+
   }
 }
