@@ -9,7 +9,7 @@ function MyApp() {
   function removeOneCharacter(index) {
     const userToDelete = characters[index];
     if(!userToDelete) return;
-    fetch(`http://localhost:8000/users/${userToDelete.id}`,{
+    fetch(`http://localhost:8000/users/${userToDelete._id}`,{
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -29,10 +29,7 @@ function MyApp() {
     .catch((error) => {
       console.log(error);
     });
-    // const updated = characters.filter((character, i) => {
-    //   return i !== index;
-    // });
-    // setCharacters(updated);
+    
   }
     
   
@@ -41,7 +38,7 @@ function MyApp() {
   function updateList(person) {
     postUser(person)
     .then((response) =>{
-      if(response.status ===201){
+      if(response.status === 201){
         return response.json();
       } else{
         throw new Error('Failed to create')
