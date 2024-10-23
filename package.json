@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+
     "dev": "npm run dev --workspace backend.js",
-    "start": "npm start --workspace backend.js"
+    "start": "npm start --workspace react-frontend"
   },
   "author": "",
   "license": "ISC",
